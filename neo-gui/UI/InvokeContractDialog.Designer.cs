@@ -67,6 +67,8 @@
             this.label_Signature = new System.Windows.Forms.Label();
             this.comboBoxSignature = new System.Windows.Forms.ComboBox();
             this.button_Add = new System.Windows.Forms.Button();
+            this.textBoxNetWorkFee = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -313,11 +315,11 @@
             // 
             resources.ApplyResources(this.label_Signature, "label_Signature");
             this.label_Signature.Name = "label_Signature";
-            //
+            // 
             // comboBoxSignature
             // 
-            this.comboBoxSignature.FormattingEnabled = true;
             this.comboBoxSignature.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxSignature.FormattingEnabled = true;
             resources.ApplyResources(this.comboBoxSignature, "comboBoxSignature");
             this.comboBoxSignature.Name = "comboBoxSignature";
             // 
@@ -328,12 +330,24 @@
             this.button_Add.UseVisualStyleBackColor = true;
             this.button_Add.Click += new System.EventHandler(this.Button9_Click);
             // 
+            // textBoxNetWorkFee
+            // 
+            resources.ApplyResources(this.textBoxNetWorkFee, "textBoxNetWorkFee");
+            this.textBoxNetWorkFee.Name = "textBoxNetWorkFee";
+            // 
+            // label11
+            // 
+            resources.ApplyResources(this.label11, "label11");
+            this.label11.Name = "label11";
+            // 
             // InvokeContractDialog
             // 
             this.AcceptButton = this.button3;
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.button4;
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.textBoxNetWorkFee);
             this.Controls.Add(this.button_Add);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.comboBoxSignature);
@@ -402,5 +416,7 @@
         private System.Windows.Forms.Button button_Add;
         private System.Windows.Forms.ComboBox comboBoxSignature;
         private System.Windows.Forms.Label label_Signature;
+        private System.Windows.Forms.TextBox textBoxNetWorkFee;
+        private System.Windows.Forms.Label label11;
     }
 }

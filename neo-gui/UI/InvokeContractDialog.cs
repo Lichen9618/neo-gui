@@ -54,12 +54,13 @@ namespace Neo.UI
 
         public InvocationTransaction GetTransaction(Fixed8 fee, UInt160 Change_Address = null)
         {
-            if (tx.Size > 1024)
+            Fixed8 ManualNetworkFee = Fixed8.Zero;
+            if (tx.Size > 1024 || Fixed8.TryParse(textBoxNetWorkFee.Text, out ManualNetworkFee))
             {
                 Fixed8 sumFee = Fixed8.FromDecimal(tx.Size * 0.00001m) + Fixed8.FromDecimal(0.001m);
                 if (fee < sumFee)
                 {
-                    fee = sumFee;
+                    fee = sumFee + ManualNetworkFee;
                 }
             }
 
