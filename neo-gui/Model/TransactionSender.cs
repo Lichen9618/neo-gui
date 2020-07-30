@@ -38,7 +38,7 @@ namespace Neo.Model
 
         public bool SetAssetList(AssetCollectionList collection)
         {
-            if (isFinished == true || assetsToSend.AssetListCount() == 0)
+            if (isFinished == true)
             {
                 assetsToSend = collection;
                 return true;
@@ -53,6 +53,7 @@ namespace Neo.Model
         
         public bool StartToSend()
         {
+            isFinished = false;
             foreach (var transaction in transactions)
             {
                 if (!this.SendTransaction(transaction.Key, transaction.Value))
@@ -85,6 +86,10 @@ namespace Neo.Model
 
         public bool GetTransaction(UInt160 assetHash)
         {
+            if (isFinished == false)            
+            {
+                return false;
+            }
             AssetList assetList = assetsToSend.GetAssetList(assetHash);
             if (assetList == null)             
             {
@@ -107,7 +112,6 @@ namespace Neo.Model
                 }
             }
             transactions = results;
-            isFinished = false;
             return true;
         }
     }
