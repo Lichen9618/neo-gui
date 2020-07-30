@@ -29,7 +29,6 @@ namespace Neo.UI
             {
                 comboBoxAssetHash.Items.Add(s);
             }
-            //transactionSender.SetAssetList(collection);
         }
 
         private void buttonConfirm_Click(object sender, EventArgs e)
@@ -103,15 +102,11 @@ namespace Neo.UI
                     foreach (UInt160 address in addresses)
                         sb.EmitAppCall(script_hash, "balanceOf", address);
                     sb.Emit(OpCode.DEPTH, OpCode.PACK);
-                    sb.EmitAppCall(script_hash, "decimals");
-                    sb.EmitAppCall(script_hash, "name");
                     script = sb.ToArray();
                 }
                 using (ApplicationEngine engine = ApplicationEngine.Run(script, testMode: true))
                 {
                     if (engine.State.HasFlag(VMState.FAULT)) continue;
-                    string name = engine.ResultStack.Pop().GetString();
-                    byte decimals = (byte)engine.ResultStack.Pop().GetBigInteger();
                     var result = (Neo.VM.Types.Array)engine.ResultStack.Pop();
                     AssetCollectionList collection = new AssetCollectionList();
                     collection.AddAssetsList(script_hash, addresses, result);

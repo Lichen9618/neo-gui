@@ -53,6 +53,10 @@ namespace Neo.Model
         
         public bool StartToSend()
         {
+            if (transactions == null) 
+            {
+                return false;
+            }
             isFinished = false;
             foreach (var transaction in transactions)
             {

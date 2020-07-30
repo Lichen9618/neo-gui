@@ -39,7 +39,6 @@ namespace Neo.UI
         private DateTime persistence_time = DateTime.MinValue;
         private IActorRef actor;
         private WalletIndexer indexer;
-        //private AssetCollectionList collection = new AssetCollectionList();
 
         public MainForm(XDocument xdoc = null)
         {
@@ -429,7 +428,6 @@ namespace Neo.UI
                             string name = engine.ResultStack.Pop().GetString();
                             byte decimals = (byte)engine.ResultStack.Pop().GetBigInteger();
                             var result = (VMArray)engine.ResultStack.Pop();
-                            //collection.AddAssetsList(script_hash, addresses, result);
                             BigInteger amount = result.Aggregate(BigInteger.Zero, (x, y) => x + y.GetBigInteger());
                             if (amount == 0)
                             {
