@@ -168,25 +168,31 @@
     <value>&amp;Wallet</value>
   </data>
   <data name="转账TToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>174, 22</value>
+    <value>180, 22</value>
   </data>
   <data name="转账TToolStripMenuItem.Text" xml:space="preserve">
     <value>&amp;Transfer...</value>
   </data>
   <data name="交易TToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>174, 22</value>
+    <value>180, 22</value>
   </data>
   <data name="交易TToolStripMenuItem1.Text" xml:space="preserve">
     <value>Transactions(&amp;X)...</value>
   </data>
   <data name="toolStripSeparator5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>171, 6</value>
+    <value>177, 6</value>
   </data>
   <data name="签名SToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>174, 22</value>
+    <value>180, 22</value>
   </data>
   <data name="签名SToolStripMenuItem.Text" xml:space="preserve">
     <value>&amp;Signature...</value>
+  </data>
+  <data name="collectAssetToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 22</value>
+  </data>
+  <data name="collectAssetToolStripMenuItem.Text" xml:space="preserve">
+    <value>Collect Asset</value>
   </data>
   <data name="交易TToolStripMenuItem.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -742,7 +748,7 @@
     <value>3, 3</value>
   </data>
   <data name="listView2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>889, 522</value>
+    <value>889, 521</value>
   </data>
   <data name="listView2.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -766,7 +772,7 @@
     <value>3, 3, 3, 3</value>
   </data>
   <data name="tabPage2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>895, 528</value>
+    <value>895, 527</value>
   </data>
   <data name="tabPage2.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -835,7 +841,7 @@
     <value>3, 3</value>
   </data>
   <data name="listView3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>889, 522</value>
+    <value>889, 521</value>
   </data>
   <data name="listView3.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -859,7 +865,7 @@
     <value>3, 3, 3, 3</value>
   </data>
   <data name="tabPage3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>895, 528</value>
+    <value>895, 527</value>
   </data>
   <data name="tabPage3.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -1647,6 +1653,12 @@
     <value>toolStripMenuItem1</value>
   </data>
   <data name="&gt;&gt;toolStripMenuItem1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;collectAssetToolStripMenuItem.Name" xml:space="preserve">
+    <value>collectAssetToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;collectAssetToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">

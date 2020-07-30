@@ -24,6 +24,7 @@ using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Security.Cryptography;
 using System.Windows.Forms;
+using Neo.Model;
 using System.Xml.Linq;
 using Settings = Neo.Properties.Settings;
 using VMArray = Neo.VM.Types.Array;
@@ -38,6 +39,7 @@ namespace Neo.UI
         private DateTime persistence_time = DateTime.MinValue;
         private IActorRef actor;
         private WalletIndexer indexer;
+        //private AssetCollectionList collection = new AssetCollectionList();
 
         public MainForm(XDocument xdoc = null)
         {
@@ -426,7 +428,9 @@ namespace Neo.UI
                             if (engine.State.HasFlag(VMState.FAULT)) continue;
                             string name = engine.ResultStack.Pop().GetString();
                             byte decimals = (byte)engine.ResultStack.Pop().GetBigInteger();
-                            BigInteger amount = ((VMArray)engine.ResultStack.Pop()).Aggregate(BigInteger.Zero, (x, y) => x + y.GetBigInteger());
+                            var result = (VMArray)engine.ResultStack.Pop();
+                            //collection.AddAssetsList(script_hash, addresses, result);
+                            BigInteger amount = result.Aggregate(BigInteger.Zero, (x, y) => x + y.GetBigInteger());
                             if (amount == 0)
                             {
                                 listView2.Items.RemoveByKey(script_hash.ToString());
@@ -1051,6 +1055,14 @@ namespace Neo.UI
             using (UpdateDialog dialog = new UpdateDialog((XDocument)toolStripStatusLabel3.Tag))
             {
                 dialog.ShowDialog();
+            }
+        }
+
+        private void collectAssetToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (AssetCollectionDialog assetCollectionDialog = new AssetCollectionDialog(Settings.Default.NEP5Watched)) 
+            {
+                assetCollectionDialog.ShowDialog();
             }
         }
     }

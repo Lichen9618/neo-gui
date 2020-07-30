@@ -62,6 +62,35 @@ namespace Neo.UI
             }
         }
 
+        public static bool SignByAccount(Transaction tx)
+        {
+            if (tx == null)
+            {
+                return false;
+            }
+            ContractParametersContext context;
+            try
+            {
+                context = new ContractParametersContext(tx);
+            }
+            catch (InvalidOperationException)
+            {
+                return false;
+            }
+            Program.CurrentWallet.Sign(context);
+            if (context.Completed)
+            {
+                tx.Witnesses = context.GetWitnesses();
+                Program.CurrentWallet.ApplyTransaction(tx);
+                Program.NeoSystem.LocalNode.Tell(new LocalNode.Relay { Inventory = tx });
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         public static bool CostRemind(Fixed8 SystemFee, Fixed8 NetFee)
         {
             NetFeeDialog frm = new NetFeeDialog(SystemFee, NetFee);

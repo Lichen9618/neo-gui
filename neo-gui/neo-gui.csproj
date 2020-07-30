@@ -79,6 +79,9 @@
     <Compile Include="Cryptography\CertificateQueryResultType.cs" />
     <Compile Include="Cryptography\CertificateQueryService.cs" />
     <Compile Include="IO\Actors\EventWrapper.cs" />
+    <Compile Include="Model\AssetCollectionList.cs" />
+    <Compile Include="Model\AssetList.cs" />
+    <Compile Include="Model\TransactionSender.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -91,6 +94,18 @@
     </Compile>
     <Compile Include="Properties\Settings.cs">
       <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="UI\AssetCollectionDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\AssetCollectionDialog.Designer.cs">
+      <DependentUpon>AssetCollectionDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\AssetCollectionPreviewDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\AssetCollectionPreviewDialog.Designer.cs">
+      <DependentUpon>AssetCollectionPreviewDialog.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\AssetRegisterDialog.cs">
       <SubType>Form</SubType>
@@ -349,6 +364,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Strings.zh-Hans.resx">
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\AssetCollectionDialog.resx">
+      <DependentUpon>AssetCollectionDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\AssetCollectionPreviewDialog.resx">
+      <DependentUpon>AssetCollectionPreviewDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\AssetRegisterDialog.es-ES.resx">
       <DependentUpon>AssetRegisterDialog.cs</DependentUpon>
@@ -752,6 +773,7 @@
     </PackageReference>
     <PackageReference Include="SQLitePCLRaw.bundle_e_sqlite3" Version="1.1.13" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
