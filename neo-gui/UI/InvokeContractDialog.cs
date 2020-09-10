@@ -145,6 +145,7 @@ namespace Neo.UI
         private void button5_Click(object sender, EventArgs e)
         {
             byte[] script;
+            List<TransactionAttribute> attributes = new List<TransactionAttribute>();
             try
             {
                 script = textBox6.Text.Trim().HexToBytes();
@@ -157,7 +158,13 @@ namespace Neo.UI
             if (tx == null) tx = new InvocationTransaction();
             tx.Version = 1;
             tx.Script = script;
-            tx.Attributes = temp_signatures.Select(p => p.Unwrap()).ToArray();
+            attributes = temp_signatures.Select(p => p.Unwrap()).ToList();
+            attributes.Add(new TransactionAttribute
+            {
+                Usage = TransactionAttributeUsage.Remark,
+                Data = Encoding.UTF8.GetBytes(DateTime.Now.ToString())
+            });
+            tx.Attributes = attributes.ToArray();
             if (tx.Inputs == null) tx.Inputs = new CoinReference[0];
             if (tx.Outputs == null) tx.Outputs = new TransactionOutput[0];
             if (tx.Witnesses == null) tx.Witnesses = new Witness[0];
@@ -287,6 +294,7 @@ namespace Neo.UI
         private void button9_Click_1(object sender, EventArgs e)
         {
             byte[] script;
+            List<TransactionAttribute> attributes = new List<TransactionAttribute>();
             try
             {
                 script = textBox6.Text.Trim().HexToBytes();
@@ -299,7 +307,13 @@ namespace Neo.UI
             if (tx == null) tx = new InvocationTransaction();
             tx.Version = 1;
             tx.Script = script;
-            tx.Attributes = temp_signatures.Select(p => p.Unwrap()).ToArray();
+            attributes = temp_signatures.Select(p => p.Unwrap()).ToList();
+            attributes.Add(new TransactionAttribute
+            {
+                Usage = TransactionAttributeUsage.Remark,
+                Data = Encoding.UTF8.GetBytes(DateTime.Now.ToString())
+            });
+            tx.Attributes = attributes.ToArray();
             if (tx.Inputs == null) tx.Inputs = new CoinReference[0];
             if (tx.Outputs == null) tx.Outputs = new TransactionOutput[0];
             if (tx.Witnesses == null) tx.Witnesses = new Witness[0];
