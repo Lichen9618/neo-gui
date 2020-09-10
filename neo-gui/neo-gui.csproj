@@ -768,13 +768,10 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Neo">
+      <Version>2.12.0</Version>
+    </PackageReference>
     <PackageReference Include="SQLitePCLRaw.bundle_e_sqlite3" Version="1.1.13" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\neo-2.10.3\neo\neo.csproj">
-      <Project>{6958c0cc-a6c8-44f4-ac6b-90b1e0e1d8b8}</Project>
-      <Name>neo</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
